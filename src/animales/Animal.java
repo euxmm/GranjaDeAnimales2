@@ -9,7 +9,13 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.Objects;
 
-
+/**
+ * Clase Animal que describe los atributos de éste como
+ * su sexo, peso, fecha de nacimiento y código, 
+ * ademaás, define su comportamiento
+ * @author eunice
+ * @version 1.0
+ */
 public abstract class Animal {
 
     protected String codigo;
@@ -17,7 +23,24 @@ public abstract class Animal {
     private char sexo;
     private double peso;
 
-    
+    /**
+     * Constructor de la clase Animal, define un codigo, su fecha de nacimiento, el sexo y el peso
+     * del animal.
+     * Realiza validaciones sobre los parámrtros
+     * <ul>
+     *  <li> El código debe tener 5 caracteres dígitos (0-9) o letras minúsculas (a-z)
+     *  <li> El sexo deber ser 'M' (hembra) o 'H' (macho)
+     *  <li> El peso debe ser un número positivo mayor que cero
+     *  <li> La fecha de nacimiento debe estar en un formato ISO-8601 válido (yyyy-mm-dd)
+     * </ul>
+     * 
+     * Si algún parámetro no cumple estas restricciones se lanza una excepción IllegalArgumentException
+     * @param codigo el código identificativo del animal, compuesto por 5 caracteres alfanuméricos en minúscula
+     * @param fechaNacimiento la fecha de nacimiento del animal en formato "yyyy-MM-dd"
+     * @param sexo el sexo del animal, 'M' para hembra o 'H' para macho
+     * @param peso el peso del animal en kilogramos, debe ser mayor que 0
+     */
+
     public Animal(String codigo, String fechaNacimiento, char sexo, double peso) {
 
         LocalDate fecha;
